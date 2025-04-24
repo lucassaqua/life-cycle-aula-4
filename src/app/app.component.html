@@ -4,8 +4,13 @@
   <div class="container">
     <div class="lista">
       <h4 class="title-list">Lista de Compras</h4>
-      <div *ngIf="listaDeCompra.length !== 0; else naoTemItem">
+      <div *ngIf="listaDeCompra.length !== 0; else naoTemItem"> <!-- Observar a sintaxe do else nessa div. E o #naoTemItem -->
         <div *ngFor="let item of listaDeCompra">
+          <!--
+          [item]="item" envia item daqui para o item.component
+
+           (emitindoItemParaEditar)="editarItem($event)"  faz com que editarItem() receba de item.component o item que será editado
+           -->
           <app-item [item]="item" (emitindoItemParaEditar)="editarItem($event)"></app-item>
         </div>
       </div>
